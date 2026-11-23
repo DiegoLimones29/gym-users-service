@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: gym-users-service
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_SSL
+        value: "true"
+      - key: DB_SCHEMA
+        value: public
+      - key: DB_SYNCHRONIZE
+        value: "true"
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: GATEWAY_WEBHOOK_TIMEOUT_MS
+        value: "10000"
+      - key: CORS_ORIGIN
+        value: https://diegolimones29.github.io
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: INTERNAL_API_KEY
+        sync: false
+      - key: GATEWAY_WEBHOOK_URL
+        sync: false
